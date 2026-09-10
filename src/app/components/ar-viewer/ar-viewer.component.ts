@@ -1,7 +1,7 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, inject, OnDestroy, output, signal, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowsRotate, faCamera, faCube, faExpand, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsRotate, faCamera, faCube, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 type ViewerMode = 'starting' | 'mindar' | 'xr' | 'camera' | 'simulator' | 'error';
 
@@ -79,7 +79,6 @@ export class ArViewerComponent implements AfterViewInit, OnDestroy {
   readonly faArrowsRotate = faArrowsRotate;
   readonly faCamera = faCamera;
   readonly faCube = faCube;
-  readonly faExpand = faExpand;
   readonly faXmark = faXmark;
 
   private cameraStream?: MediaStream;
@@ -93,7 +92,7 @@ export class ArViewerComponent implements AfterViewInit, OnDestroy {
   constructor() {
     const sanitizer = inject(DomSanitizer);
     this.videoUrl = sanitizer.bypassSecurityTrustResourceUrl(
-      'https://www.youtube.com/embed/GkelMun0huY?autoplay=1&mute=1&playsinline=1&rel=0'
+      'https://www.youtube.com/embed/GkelMun0huY?autoplay=1&playsinline=1&controls=1&rel=0'
     );
   }
 
@@ -166,7 +165,10 @@ export class ArViewerComponent implements AfterViewInit, OnDestroy {
       scene.append(camera, target);
       host.replaceChildren(scene);
       this.mindarScene = scene;
-      await new Promise<void>((resolve) => scene.addEventListener('loaded', () => resolve(), { once: true }));
+      await Promise.race([
+        new Promise<void>((resolve) => scene.addEventListener('loaded', () => resolve(), { once: true })),
+        new Promise<never>((_, reject) => window.setTimeout(() => reject(new Error('MindAR tardó demasiado en iniciar')), 8000))
+      ]);
       this.mode.set('mindar');
       this.message.set('Apunta la cámara al marcador Metro');
       return true;
@@ -204,7 +206,9 @@ export class ArViewerComponent implements AfterViewInit, OnDestroy {
   private async startCameraFallback(simulator: boolean): Promise<void> {
     if (!navigator.mediaDevices?.getUserMedia || !this.camera?.nativeElement) {
       this.mode.set('error');
-      this.message.set('Este navegador no permite reproducir AR.');
+      this.message.set(window.isSecureContext
+        ? 'Este navegador no permite acceder a la cámara.'
+        : 'La cámara requiere HTTPS o abrir la aplicación instalada.');
       return;
     }
 
@@ -217,9 +221,12 @@ export class ArViewerComponent implements AfterViewInit, OnDestroy {
       await this.camera.nativeElement.play();
       this.mode.set(simulator ? 'simulator' : 'camera');
       this.message.set(simulator ? 'Objeto AR simulado para PC' : 'Vista AR de cámara activa');
-    } catch {
+    } catch (error) {
       this.mode.set('error');
-      this.message.set('Concede permiso de cámara para iniciar la vista AR.');
+      const name = error instanceof DOMException ? error.name : '';
+      this.message.set(name === 'NotAllowedError'
+        ? 'Concede el permiso de cámara en los ajustes del dispositivo.'
+        : 'No se pudo iniciar la cámara. Comprueba que no esté siendo usada por otra aplicación.');
     }
   }
 

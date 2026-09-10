@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CaleVRadmin</string>
+    <string name="title_activity_main">CaleVRadmin</string>
+    <string name="package_name">com.calevr.admin</string>
+    <string name="custom_url_scheme">com.calevr.admin</string>
+</resources>
