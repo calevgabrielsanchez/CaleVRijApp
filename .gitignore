@@ -1,0 +1,17 @@
+node_modules/
+.angular/
+dist/
+coverage/
+.cache/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+!.env.example
+android/.gradle/
+android/build/
+android/capacitor-cordova-android-plugins/
+android/local.properties
+ios/App/Pods/
+ios/App/App/public/

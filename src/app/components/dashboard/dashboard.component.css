@@ -1,0 +1,20 @@
+:host { display: block; }
+.section-view { padding: 22px 18px; }
+.section-title { align-items: flex-start; display: flex; justify-content: space-between; }
+.kicker, .hero-label { color: var(--magenta); font-size: 10px; font-weight: 700; letter-spacing: .14em; }
+h2 { color: var(--cyan); font-size: 24px; letter-spacing: -.03em; margin: 6px 0 21px; }
+.pulse { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+.pulse i, .status-line i { background: var(--green); border-radius: 50%; display: inline-block; height: 6px; margin: 0 4px 1px 0; width: 6px; }
+.hero-card { align-items: center; background: linear-gradient(145deg, #1db5f2, #087ab9); border: 3px solid #152c3a; box-shadow: inset 0 0 0 2px #69dcff, inset 0 -8px 20px #00527a66; display: flex; justify-content: space-between; min-height: 128px; overflow: hidden; padding: 20px; position: relative; }
+.hero-card::after { border: 1px solid #4ca0e033; border-radius: 50%; content: ''; height: 230px; position: absolute; right: -54px; top: -52px; width: 230px; }
+.hero-card h3 { color: #062337; font-size: 25px; font-weight: 300; line-height: .97; margin: 12px 0 0; position: relative; z-index: 1; }.hero-card h3 strong { color: #e7fbff; font-weight: 700; }.hero-icon { color: #05243a; font-size: 36px; margin-right: 8px; transform: rotate(45deg); z-index: 1; }
+.metrics { display: grid; gap: 8px; grid-template-columns: repeat(4, 1fr); margin: 18px 0; }
+.metric-card { background: var(--console-black); border: 2px solid #3c9fc3; box-shadow: inset 0 2px 0 #576366; display: flex; flex-direction: column; gap: 5px; min-height: 88px; padding: 11px 9px; }
+.metric-card fa-icon { color: var(--cyan); font-size: 13px; }
+.metric-card strong { color: #e8f8ff; font-size: 22px; line-height: 1; }
+.metric-card span { color: var(--cyan-muted); font-size: 10px; }
+.metric-card.green fa-icon, .metric-card.green strong { color: var(--green); }
+.metric-card.yellow fa-icon, .metric-card.yellow strong { color: var(--yellow); }
+.metric-card.magenta fa-icon, .metric-card.magenta strong { color: var(--magenta); }
+.status-line { border-top: 1px solid var(--line-muted); color: var(--cyan-muted); display: flex; font-size: 10px; justify-content: space-between; padding-top: 13px; }
+.status-line b { color: var(--green); font-weight: 400; }

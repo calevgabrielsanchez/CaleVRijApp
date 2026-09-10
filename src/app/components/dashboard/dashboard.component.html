@@ -1,0 +1,26 @@
+<section class="section-view dashboard-view">
+  <div class="section-title">
+    <div>
+      <span class="kicker">OVERVIEW / 01</span>
+      <h2>Panel de control</h2>
+    </div>
+    <span class="pulse"><i></i> LIVE</span>
+  </div>
+
+  <div class="hero-card">
+    <div>
+      <span class="hero-label">CALEVR / ADMIN</span>
+      <h3>Tu espacio<br><strong>inmersivo.</strong></h3>
+    </div>
+    <fa-icon [icon]="faArrowTrendUp" class="hero-icon" />
+  </div>
+
+  <div class="metrics">
+    <article class="metric-card"><fa-icon [icon]="faFileLines" /><strong>{{ items().length }}</strong><span>Items totales</span></article>
+    <article class="metric-card green"><fa-icon [icon]="faCircleCheck" /><strong>{{ published() }}</strong><span>Publicados</span></article>
+    <article class="metric-card yellow"><fa-icon [icon]="faArrowTrendUp" /><strong>{{ drafts() }}</strong><span>En edición</span></article>
+    <article class="metric-card magenta"><fa-icon [icon]="faBoxArchive" /><strong>{{ archived() }}</strong><span>Archivados</span></article>
+  </div>
+
+  <div class="status-line"><span>SISTEMA OPERATIVO</span><b><i></i> Todos los servicios activos</b></div>
+</section>

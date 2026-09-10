@@ -1,0 +1,15 @@
+<section class="section-view settings-view">
+  <div class="section-title">
+    <div>
+      <span class="kicker">SYSTEM / 04</span>
+      <h2>Ajustes</h2>
+    </div>
+    <fa-icon [icon]="faGear" class="title-icon" />
+  </div>
+  <div class="settings-list">
+    <div class="setting-row"><fa-icon [icon]="faMobileScreenButton" /><span><b>Aplicación</b><small>CaleVRadmin · v1.0.0</small></span><strong class="green">ACTIVA</strong></div>
+    <div class="setting-row"><fa-icon [icon]="faDatabase" /><span><b>Persistencia</b><small>Almacenamiento local del dispositivo</small></span><strong class="green">LOCAL</strong></div>
+  </div>
+  <div class="reset-box"><h3>Restaurar contenido demo</h3><p>Reemplaza los cambios locales por los datos iniciales.</p><button type="button" (click)="resetData()"><fa-icon [icon]="faArrowsRotate" /> Restaurar</button></div>
+  @if (resetDone()) { <p class="reset-done">Contenido restaurado.</p> }
+</section>

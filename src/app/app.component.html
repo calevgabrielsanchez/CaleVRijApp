@@ -1,0 +1,36 @@
+<main class="app-container">
+  <span class="corner-screw screw-top-left" aria-hidden="true"></span>
+  <span class="corner-screw screw-top-right" aria-hidden="true"></span>
+  <span class="corner-screw screw-bottom-left" aria-hidden="true"></span>
+  <span class="corner-screw screw-bottom-right" aria-hidden="true"></span>
+  <header class="app-header">
+    <div class="brand-mark" aria-hidden="true"><span>CV</span></div>
+    <div class="brand-copy"><h1>CaleVRij<span>App</span></h1></div>
+    <button class="connection" type="button" aria-label="Abrir visor de realidad aumentada" (click)="openAr()"><i></i><span>AR</span><fa-icon [icon]="faCube" /></button>
+  </header>
+
+  <nav class="main-menu" aria-label="Navegación principal">
+    @for (section of sections; track section.key) {
+      <button
+        type="button"
+        [class.active]="activeSection() === section.key"
+        [attr.aria-current]="activeSection() === section.key ? 'page' : null"
+        (click)="navigate(section.key)"
+      >
+        <fa-icon [icon]="section.icon" />
+        <span>{{ section.label }}</span>
+      </button>
+    }
+  </nav>
+
+  <div class="content-frame">
+    <ng-container *ngComponentOutlet="activeComponent()"></ng-container>
+  </div>
+
+  <footer class="app-footer">
+    <span><b>CALEVR</b> / immersive admin</span>
+    <span class="footer-vents" aria-hidden="true"></span>
+    <span>v1.0.0 <i></i></span>
+  </footer>
+</main>
+@if (arOpen()) { <app-ar-viewer (closed)="arOpen.set(false)" /> }

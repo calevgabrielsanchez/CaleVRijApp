@@ -1,0 +1,34 @@
+:host { display: block; }
+
+.text-plus {
+  border: 1px solid var(--line);
+  background: var(--panel-soft);
+  padding: 14px;
+  box-shadow: 0 0 24px #051b3526;
+}
+
+.editor-heading, .editor-actions { align-items: center; display: flex; justify-content: space-between; gap: 12px; }
+.eyebrow { color: var(--magenta); font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+h3 { color: var(--cyan); font-size: 17px; margin: 5px 0 13px; }
+.counter, .hint { color: var(--cyan-muted); font-size: 11px; }
+textarea {
+  background: #090e1c;
+  border: 1px solid var(--line-muted);
+  color: var(--cyan);
+  display: block;
+  line-height: 1.5;
+  min-height: 104px;
+  padding: 11px;
+  resize: vertical;
+  width: 100%;
+}
+textarea::placeholder { color: #46627f; }
+.editor-actions { margin-top: 11px; }
+.save-button {
+  background: var(--green);
+  border: 0;
+  color: #06140e;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 12px;
+}

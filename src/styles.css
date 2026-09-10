@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'Ubuntu Local';
+  src: url('/Ubuntu.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #070a15;
+  --panel: #0e1324;
+  --panel-soft: #131a2f;
+  --line: #2164b3;
+  --line-muted: #183a68;
+  --cyan: #9bdcff;
+  --cyan-muted: #6496ba;
+  --magenta: #f147bd;
+  --green: #45dc8e;
+  --yellow: #f7c65c;
+  --danger: #ff688d;
+  --shell-light: #e2e5e5;
+  --shell-mid: #aeb6b8;
+  --shell-dark: #4c5559;
+  --screen-blue: #099ee5;
+  --screen-deep: #0068a5;
+  --console-black: #171b1d;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  background: radial-gradient(circle at 50% 12%, #3c3c3c 0, #333333 48%, #282828 100%);
+  color: var(--cyan);
+  font-family: 'Ubuntu Local', Ubuntu, system-ui, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+
+button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--magenta);
+  outline-offset: 2px;
+}
+
+/* Icons are the magenta control language; green is reserved for active states. */
+fa-icon { color: var(--magenta) !important; }
+
+/* Game Boy Color screen treatment for the dynamic application content. */
+.content-frame .section-view { color: #142754; position: relative; z-index: 1; }
+.content-frame h2, .content-frame h3, .content-frame .item-info strong, .content-frame .hero-card h3 { color: #142754 !important; font-family: 'Courier New', monospace; text-shadow: 1px 1px #a5edff; }
+.content-frame .kicker, .content-frame .hero-label, .content-frame .selected-label { color: #d52b72 !important; }
+.content-frame .hero-card { background: linear-gradient(145deg, #ffe55b, #f29a43) !important; border-color: #142754 !important; box-shadow: inset 0 0 0 2px #fff5a4, inset 0 -8px 18px #b34e3d55 !important; }
+.content-frame .hero-card h3 strong { color: #263f93 !important; }
+.content-frame .metric-card, .content-frame .export-card, .content-frame .settings-list, .content-frame .reset-box { background: #263f93 !important; border-color: #142754 !important; box-shadow: inset 0 2px #5876d1 !important; }
+.content-frame .metric-card strong, .content-frame .metric-card span, .content-frame .export-card h3, .content-frame .setting-row b, .content-frame .reset-box h3 { color: #f3fbff !important; }
+.content-frame .metric-card fa-icon, .content-frame .metric-card.green fa-icon, .content-frame .metric-card.yellow fa-icon, .content-frame .metric-card.magenta fa-icon { color: var(--magenta) !important; }
+.content-frame .status-line, .content-frame .item-list, .content-frame .setting-row { border-color: #263f93 !important; }
+.content-frame .status-line, .content-frame .item-info small, .content-frame .total-count, .content-frame .setting-row small, .content-frame .reset-box p { color: #263f93 !important; }
+.content-frame .item-row { background: #bcecff !important; border-color: #263f93 !important; color: #142754 !important; }.content-frame .item-row:hover { background: #83d8ef !important; }.content-frame .item-row.selected { background: #55b96f !important; box-shadow: inset 4px 0 #176638 !important; }.content-frame .item-row.selected .item-info strong, .content-frame .item-row.selected .item-info small { color: #103d2b !important; }
+.content-frame .text-plus, .content-frame textarea { background: #fff0a6 !important; border-color: #263f93 !important; color: #142754 !important; }.content-frame textarea::placeholder { color: #63759b !important; }.content-frame .counter, .content-frame .hint { color: #263f93 !important; }.content-frame .save-button, .content-frame .download-button { background: #55b96f !important; border: 2px solid #176638 !important; color: #103d2b !important; }
+
+@media (max-width: 420px) {
+  body { background: var(--panel); }
+}

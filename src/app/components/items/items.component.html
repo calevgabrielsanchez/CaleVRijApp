@@ -1,0 +1,33 @@
+<section class="section-view items-view">
+  <div class="section-title">
+    <div>
+      <span class="kicker">CONTENT / 02</span>
+      <h2>Items del espacio</h2>
+    </div>
+    <span class="total-count">{{ items().length | number:'2.0-0' }}</span>
+  </div>
+
+  <div class="item-list" aria-label="Lista de items">
+    @for (item of items(); track item.id) {
+      <button class="item-row" [class.selected]="item.id === selectedId()" type="button" (click)="select(item)">
+        <span class="item-index">{{ $index + 1 | number:'2.0-0' }}</span>
+        <span class="item-info"><strong>{{ item.title }}</strong><small>{{ item.type }} · {{ item.slug }}</small></span>
+        <span [class]="'status-dot status-' + item.status" [attr.title]="item.status"></span>
+        <fa-icon [icon]="faChevronRight" class="chevron" />
+      </button>
+    } @empty {
+      <p class="empty">No hay items disponibles.</p>
+    }
+  </div>
+
+  @if (selectedItem(); as item) {
+    <div class="selected-heading">
+      <div><span class="selected-label">ITEM SELECCIONADO</span><h3>{{ item.title }}</h3></div>
+      <button class="status-button" type="button" (click)="cycleStatus(item)">
+        <span [class]="'status-dot status-' + item.status"></span>{{ item.status }}
+      </button>
+    </div>
+    <app-text-plus [item]="item" (saved)="saveContent($event)" />
+    @if (savedMessage()) { <p class="saved-message">{{ savedMessage() }}</p> }
+  }
+</section>

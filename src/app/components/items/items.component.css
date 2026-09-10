@@ -1,0 +1,22 @@
+:host { display: block; }
+.section-view { padding: 22px 18px; }
+.section-title { align-items: flex-start; display: flex; justify-content: space-between; }
+.kicker { color: var(--magenta); font-size: 10px; font-weight: 700; letter-spacing: .14em; }.selected-label { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .14em; }
+h2 { color: var(--cyan); font-size: 24px; letter-spacing: -.03em; margin: 6px 0 18px; }
+.total-count { color: var(--cyan-muted); font-size: 22px; font-weight: 300; }
+.item-list { border-top: 1px solid var(--line); }
+.item-row { align-items: center; background: #111c26; border: 0; border-bottom: 1px solid #19516b; color: var(--cyan); display: flex; gap: 10px; min-height: 58px; padding: 8px 3px; text-align: left; width: 100%; }.item-row:hover { background: #075d87; }.item-row.selected { background: #155b42; box-shadow: inset 3px 0 #55e7a1; }
+.item-index { color: var(--cyan-muted); font-size: 11px; width: 22px; }
+.item-info { display: flex; flex: 1; flex-direction: column; gap: 4px; min-width: 0; }
+.item-info strong { color: #d9f4ff; font-size: 13px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item-info small { color: var(--cyan-muted); font-size: 10px; }
+.status-dot { background: var(--cyan-muted); border-radius: 50%; display: inline-block; height: 7px; width: 7px; }
+.status-published { background: var(--green); box-shadow: 0 0 8px #45dc8e99; }
+.status-draft { background: var(--yellow); }
+.status-archived { background: var(--magenta); }
+.chevron { color: var(--magenta); font-size: 10px; }
+.selected-heading { align-items: flex-end; display: flex; justify-content: space-between; margin: 22px 0 10px; }
+.selected-heading h3 { color: #e1f7ff; font-size: 16px; margin: 5px 0 0; }
+.status-button { align-items: center; background: transparent; border: 1px solid var(--line-muted); color: var(--green); display: flex; font-size: 10px; gap: 6px; padding: 6px 8px; text-transform: uppercase; }
+.saved-message { color: var(--green); font-size: 11px; margin: 10px 0 0; }
+.empty { color: var(--cyan-muted); padding: 15px 0; }

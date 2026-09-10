@@ -1,0 +1,35 @@
+<div class="ar-backdrop" role="dialog" aria-modal="true" aria-labelledby="ar-title">
+  <div class="ar-window" [class.detected]="markerDetected() || mode() === 'simulator'">
+    <video #camera class="camera-feed" [class.visible]="mode() === 'camera' || mode() === 'simulator'" muted playsinline></video>
+    <div #mindarHost class="mindar-host"></div>
+    <canvas #xrCanvas class="xr-canvas"></canvas>
+    <div class="ar-grid" aria-hidden="true"></div>
+
+    <header class="ar-header">
+      <div class="ar-title"><span class="ar-badge"><fa-icon [icon]="faCube" /></span><div><span class="eyebrow">CALEVR / XR</span><h2 id="ar-title">Visor AR</h2></div></div>
+      <button class="close-button" type="button" aria-label="Cerrar visor AR" (click)="close()"><fa-icon [icon]="faXmark" /></button>
+    </header>
+
+    <div class="ar-content">
+      @if (mode() === 'starting') {
+        <div class="state-card"><fa-icon [icon]="faArrowsRotate" class="spin" /><strong>Iniciando experiencia</strong><span>{{ message() }}</span></div>
+      } @else if (mode() === 'error') {
+        <div class="state-card"><fa-icon [icon]="faCamera" class="error-icon" /><strong>Visor no disponible</strong><span>{{ message() }}</span><button type="button" (click)="retry()">Reintentar</button></div>
+      } @else {
+        @if (mode() === 'mindar' || mode() === 'camera' || mode() === 'simulator' || markerDetected()) {
+          <div class="ar-target"><span class="corner top-left"></span><span class="corner top-right"></span><span class="corner bottom-left"></span><span class="corner bottom-right"></span><div class="orb"><fa-icon [icon]="faCube" /></div></div>
+        } @else {
+          <div class="marker-hint"><fa-icon [icon]="faCamera" /><span>Apunta al marcador<br>para activar el objeto</span></div>
+        }
+        <div class="ar-label"><b>METRO / EXPERIENCIA AR</b><span>{{ mode() === 'xr' || mode() === 'mindar' ? (markerDetected() ? 'Marcador detectado' : 'Buscando marcador...') : message() }}</span></div>
+        @if (mode() === 'simulator' || markerDetected()) {
+          <div class="video-card">
+            <div class="video-heading"><b>{{ experienceTitle }}</b><span>CONTENIDO ASOCIADO</span></div>
+            <iframe [src]="videoUrl" title="Video de la experiencia Metro" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        }
+      }
+    </div>
+    <footer class="ar-footer"><span><i></i>{{ mode() === 'mindar' ? 'MINDAR IMAGE TRACKING' : mode() === 'xr' ? 'WEBXR IMMERSIVE' : mode() === 'camera' ? 'CAMERA PASSTHROUGH' : mode() === 'simulator' ? 'SIMULADOR PC / SIN TRACKING' : 'PREPARING' }}</span><fa-icon [icon]="faExpand" /></footer>
+  </div>
+</div>

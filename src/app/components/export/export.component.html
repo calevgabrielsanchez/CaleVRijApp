@@ -1,0 +1,18 @@
+<section class="section-view export-view">
+  <div class="section-title">
+    <div>
+      <span class="kicker">DATA / 03</span>
+      <h2>Exportar datos</h2>
+    </div>
+    <fa-icon [icon]="faFileCsv" class="title-icon" />
+  </div>
+
+  <div class="export-card">
+    <div class="file-icon"><fa-icon [icon]="faFileCsv" /></div>
+    <div><h3>Catálogo CaleVR</h3><p>{{ items().length }} registros · CSV UTF-8</p></div>
+    <span class="ready"><i></i> LISTO</span>
+  </div>
+  <div class="security-note"><fa-icon [icon]="faShieldHalved" /><span>Exportación segura<br><small>Los campos se escapan para evitar fórmulas en hojas de cálculo.</small></span></div>
+  <button class="download-button" type="button" (click)="download()"><fa-icon [icon]="faDownload" /> Descargar CSV</button>
+  @if (downloaded()) { <p class="downloaded"><i></i> Archivo generado correctamente</p> }
+</section>

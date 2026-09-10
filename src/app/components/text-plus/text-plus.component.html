@@ -1,0 +1,22 @@
+<section class="text-plus" aria-labelledby="text-plus-title">
+  <div class="editor-heading">
+    <div>
+      <span class="eyebrow"><fa-icon [icon]="faPen" /> TEXTPLUS</span>
+      <h3 id="text-plus-title">Contenido asociado</h3>
+    </div>
+    <span class="counter">{{ draft().length }}/500</span>
+  </div>
+  <textarea
+    aria-label="Contenido asociado al item"
+    maxlength="500"
+    [ngModel]="draft()"
+    (ngModelChange)="draft.set($event)"
+    placeholder="Escribe el contenido del item..."
+  ></textarea>
+  <div class="editor-actions">
+    <span class="hint">Se guarda localmente</span>
+    <button class="save-button" type="button" (click)="save()">
+      <fa-icon [icon]="faCheck" /> Guardar
+    </button>
+  </div>
+</section>

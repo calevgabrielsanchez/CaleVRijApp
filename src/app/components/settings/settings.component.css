@@ -1,0 +1,20 @@
+:host { display: block; }
+.section-view { padding: 22px 18px; }
+.section-title { align-items: flex-start; display: flex; justify-content: space-between; }
+.kicker { color: var(--magenta); font-size: 10px; font-weight: 700; letter-spacing: .14em; }
+h2 { color: var(--cyan); font-size: 24px; letter-spacing: -.03em; margin: 6px 0 25px; }
+.title-icon { color: var(--magenta); font-size: 23px; }
+.settings-list { border-top: 1px solid var(--line); }
+.setting-row { align-items: center; border-bottom: 1px solid var(--line-muted); display: flex; gap: 13px; min-height: 68px; }
+.setting-row > fa-icon { color: var(--cyan); font-size: 16px; width: 20px; }
+.setting-row span { display: flex; flex: 1; flex-direction: column; gap: 4px; }
+.setting-row b { color: #dff7ff; font-size: 13px; font-weight: 500; }
+.setting-row small { color: var(--cyan-muted); font-size: 10px; }
+.setting-row strong { font-size: 9px; letter-spacing: .1em; }
+.green { color: var(--green); }
+.reset-box { border: 1px solid var(--line-muted); margin-top: 26px; padding: 16px; }
+.reset-box h3 { color: var(--cyan); font-size: 14px; margin: 0 0 6px; }
+.reset-box p { color: var(--cyan-muted); font-size: 11px; margin: 0 0 15px; }
+.reset-box button { background: transparent; border: 1px solid var(--line); color: var(--cyan); font-size: 11px; padding: 8px 11px; }
+.reset-box button:hover { border-color: var(--magenta); color: var(--magenta); }
+.reset-done { color: var(--green); font-size: 11px; }

@@ -1,0 +1,18 @@
+:host { display: block; }
+.section-view { padding: 22px 18px; }
+.section-title { align-items: flex-start; display: flex; justify-content: space-between; }
+.kicker { color: var(--magenta); font-size: 10px; font-weight: 700; letter-spacing: .14em; }
+h2 { color: var(--cyan); font-size: 24px; letter-spacing: -.03em; margin: 6px 0 25px; }
+.title-icon { color: var(--magenta); font-size: 25px; }
+.export-card { align-items: center; background: var(--panel-soft); border: 1px solid var(--line); display: flex; gap: 13px; padding: 18px 14px; }
+.file-icon { align-items: center; background: #1b395c; color: var(--cyan); display: flex; font-size: 21px; height: 46px; justify-content: center; width: 46px; }
+.export-card h3 { color: #e0f7ff; font-size: 15px; margin: 0 0 5px; }
+.export-card p { color: var(--cyan-muted); font-size: 11px; margin: 0; }
+.ready { color: var(--green); font-size: 9px; margin-left: auto; }
+.ready i, .downloaded i { background: var(--green); border-radius: 50%; display: inline-block; height: 6px; margin-right: 4px; width: 6px; }
+.security-note { align-items: flex-start; color: var(--cyan); display: flex; font-size: 12px; gap: 11px; line-height: 1.5; margin: 26px 0 20px; }
+.security-note fa-icon { color: var(--green); font-size: 16px; }
+.security-note small { color: var(--cyan-muted); font-size: 10px; }
+.download-button { background: var(--magenta); border: 0; color: #21091b; font-size: 13px; font-weight: 700; padding: 12px 16px; width: 100%; }
+.download-button:hover { background: #ff66cd; }
+.downloaded { color: var(--green); font-size: 11px; margin-top: 14px; text-align: center; }
