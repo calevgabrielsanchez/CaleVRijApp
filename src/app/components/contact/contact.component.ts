@@ -92,11 +92,12 @@ import { faClock, faEnvelope, faPaperPlane, faQuestionCircle, faShareNodes, faSh
     :host { display: block; }
     .contact-view fa-icon { color: #8f3f12 !important; }
     .section-view { color: #3b1d0d; padding: 18px 14px 26px; }
+    .contact-view { background: repeating-linear-gradient(0deg, #14275412 0 1px, transparent 1px 4px); min-height: 100%; }
     .section-title { align-items: flex-start; display: flex; justify-content: space-between; }
     .kicker, .pixel-label { color: #8f3f12; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
     h2 { color: #a94d16; font-size: 23px; letter-spacing: -.03em; margin: 5px 0 18px; }
     .title-icon { color: #a94d16; font-size: 23px; }
-    .pixel-card { background: linear-gradient(145deg, #ffe39a, #ffc45b); border: 3px solid #8f3f12; box-shadow: inset 0 0 0 2px #fff0bd, inset 0 -8px 18px #d9781833, 3px 3px 0 #b85c1c; margin-bottom: 14px; padding: 13px; }
+    .pixel-card { background: repeating-linear-gradient(0deg, #8f3f1212 0 1px, transparent 1px 4px), linear-gradient(145deg, #ffe39a, #ffc45b); border: 3px solid #8f3f12; box-shadow: inset 0 0 0 2px #fff0bd, inset 0 -8px 18px #d9781833, 3px 3px 0 #b85c1c; margin-bottom: 14px; padding: 13px; }
     h3 { color: #3b1d0d; font-size: 18px; margin: 9px 0 6px; }
     p { color: #5c2b10; font-size: 11px; line-height: 1.5; margin: 0 0 13px; }
     .quick-links, .info-grid { display: grid; gap: 8px; grid-template-columns: 1fr 1fr; }

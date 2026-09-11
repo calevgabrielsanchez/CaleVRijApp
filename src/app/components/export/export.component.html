@@ -1,6 +1,6 @@
 <section class="section-view social-view">
   <div class="section-title">
-    <div><span class="kicker">SOCIAL / 03</span><h2>Redes Sociales</h2></div>
+    <div><span class="kicker">SOCIAL / 04</span><h2>Redes Sociales</h2></div>
   </div>
 
   <div class="social-links">
@@ -11,7 +11,7 @@
   </div>
 
   <div class="media-player">
-    <div class="media-heading"><span class="kicker">MEDIA PLAYER</span><span>{{ slide() + 1 }} / {{ slides.length }}</span></div>
+    <div class="media-heading"><span class="kicker">Cursos de Udemy</span><span>{{ slide() + 1 }} / {{ slides.length }}</span></div>
     <div class="carousel"><img [src]="slides[slide()].image" [alt]="slides[slide()].title"><button type="button" class="previous" aria-label="Imagen anterior" (click)="previous()"><fa-icon [icon]="faChevronLeft" /></button><button type="button" class="next" aria-label="Imagen siguiente" (click)="next()"><fa-icon [icon]="faChevronRight" /></button></div>
     <h3>{{ slides[slide()].title }}</h3>
     <div class="dots">@for (item of slides; track item.image; let i = $index) { <button type="button" [class.active]="slide() === i" [attr.aria-label]="'Ir a imagen ' + (i + 1)" (click)="slide.set(i)"></button> }</div>
