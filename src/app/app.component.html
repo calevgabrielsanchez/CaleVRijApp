@@ -6,7 +6,7 @@
   <header class="app-header">
     <div class="brand-mark" aria-hidden="true"><img src="/favicon.png" alt=""></div>
     <div class="brand-copy"><h1><span class="brand-cale">Cale</span><span class="brand-vrij">VRij</span><span class="brand-app">App</span></h1></div>
-    <button class="connection" type="button" aria-label="Abrir visor de realidad aumentada" (click)="openAr()"><i></i><span>AR</span><fa-icon [icon]="faCube" /></button>
+    <button class="connection" type="button" aria-label="Abrir visor de realidad aumentada" [disabled]="!arSupported()" (click)="openAr()"><i></i><span>AR</span><fa-icon [icon]="faCube" /></button>
   </header>
 
   <nav class="main-menu" aria-label="Navegación principal">
@@ -28,7 +28,7 @@
   </div>
 
   <footer class="app-footer">
-    <span><b>CALEVR</b> / immersive admin</span>
+    <span><a href="http://www.digitalsolution.com" target="_blank" rel="noopener noreferrer">DigitalSolution.com</a></span>
     <span class="footer-vents" aria-hidden="true"></span>
     <span>v1.0.0 <i></i></span>
   </footer>

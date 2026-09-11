@@ -1,46 +1,35 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faChevronRight, faCircle } from '@fortawesome/free-solid-svg-icons';
-import { CaleItem, ItemStatus } from '../../models/cale-item.model';
-import { CatalogService } from '../../services/catalog.service';
-import { TextPlusComponent } from '../text-plus/text-plus.component';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-items',
   standalone: true,
-  imports: [DecimalPipe, FontAwesomeModule, TextPlusComponent],
+  imports: [CurrencyPipe, FontAwesomeModule],
   templateUrl: './items.component.html',
   styleUrl: './items.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemsComponent {
-  private readonly catalog = inject(CatalogService);
-  readonly items = this.catalog.items;
-  readonly selectedId = signal(this.items()[0]?.id ?? '');
-  readonly selectedItem = computed(() => this.items().find((item) => item.id === this.selectedId()));
-  readonly savedMessage = signal('');
-  readonly faChevronRight = faChevronRight;
-  readonly faCircle = faCircle;
+  readonly faShoppingCart = faShoppingCart;
+  readonly selectedCategory = signal('Todos');
+  readonly products = [
+    { name: 'CaleVRijeZ Starter Kit', price: 29.99, image: 'https://picsum.photos/id/180/600/450' },
+    { name: 'Visor VR Explorer', price: 89.99, image: 'https://picsum.photos/id/96/600/450' },
+    { name: 'Control Motion Pro', price: 49.99, image: 'https://picsum.photos/id/367/600/450' },
+    { name: 'Lámpara Neon CaleVR', price: 34.5, image: 'https://picsum.photos/id/201/600/450' },
+    { name: 'Camiseta CaleVRije', price: 19.99, image: 'https://picsum.photos/id/823/600/450' },
+    { name: 'Pack Stickers VR', price: 8.99, image: 'https://picsum.photos/id/24/600/450' },
+    { name: 'Soporte para Visor', price: 24.99, image: 'https://picsum.photos/id/436/600/450' },
+    { name: 'Experiencia Digital VR', price: 59.99, image: 'https://picsum.photos/id/1040/600/450' }
+  ];
 
-  select(item: CaleItem): void {
-    this.selectedId.set(item.id);
-    this.savedMessage.set('');
+  selectCategory(category: string): void {
+    this.selectedCategory.set(category);
   }
 
-  saveContent(content: string): void {
-    const item = this.selectedItem();
-    if (!item) return;
-    this.catalog.updateContent(item.id, content);
-    this.savedMessage.set('Cambios guardados');
-  }
-
-  cycleStatus(item: CaleItem): void {
-    const next: Record<ItemStatus, ItemStatus> = {
-      published: 'draft',
-      draft: 'archived',
-      archived: 'published'
-    };
-    this.catalog.updateStatus(item.id, next[item.status]);
+  buy(product: { name: string }): void {
+    window.location.href = `mailto:contacto@calevrije.com?subject=${encodeURIComponent(`Comprar ${product.name}`)}`;
   }
 }

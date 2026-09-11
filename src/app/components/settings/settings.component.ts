@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowsRotate, faDatabase, faGear, faMobileScreenButton } from '@fortawesome/free-solid-svg-icons';
-import { CatalogService } from '../../services/catalog.service';
+import { faSpotify } from '@fortawesome/free-brands-svg-icons';
+import { faForwardStep, faMusic } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-settings',
@@ -12,15 +12,28 @@ import { CatalogService } from '../../services/catalog.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsComponent {
-  private readonly catalog = inject(CatalogService);
-  readonly resetDone = signal(false);
-  readonly faArrowsRotate = faArrowsRotate;
-  readonly faDatabase = faDatabase;
-  readonly faGear = faGear;
-  readonly faMobileScreenButton = faMobileScreenButton;
+  readonly selectedAlbum = signal(2);
+  readonly playing = signal(false);
+  readonly albums = [
+    { title: 'CaleVRijeZ', subtitle: 'Experiencias inmersivas', color: '#ffe55b' },
+    { title: 'Laboratorio VR', subtitle: 'Sonidos del futuro', color: '#ffe55b' },
+    { title: 'Guía de seguridad', subtitle: 'Documentos y audio', color: '#ffe55b' },
+    { title: 'Sobre CaleVR', subtitle: 'Historias de la comunidad', color: '#ffe55b' }
+  ];
+  readonly faForwardStep = faForwardStep;
+  readonly faMusic = faMusic;
+  readonly faSpotify = faSpotify;
 
-  resetData(): void {
-    this.catalog.reset();
-    this.resetDone.set(true);
+  selectAlbum(index: number): void {
+    this.selectedAlbum.set(index);
+    this.playing.set(false);
+  }
+
+  previous(): void {
+    this.selectedAlbum.update((index) => (index - 1 + this.albums.length) % this.albums.length);
+  }
+
+  next(): void {
+    this.selectedAlbum.update((index) => (index + 1) % this.albums.length);
   }
 }

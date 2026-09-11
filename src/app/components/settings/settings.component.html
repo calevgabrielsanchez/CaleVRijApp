@@ -1,15 +1,24 @@
-<section class="section-view settings-view">
+<section class="section-view music-view">
   <div class="section-title">
-    <div>
-      <span class="kicker">SYSTEM / 04</span>
-      <h2>Ajustes</h2>
-    </div>
-    <fa-icon [icon]="faGear" class="title-icon" />
+    <div class="music-heading"><div><span class="kicker">MUSIC / 03</span><h2>Music Project</h2></div><a class="spotify-header-logo" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Spotify"><fa-icon [icon]="faSpotify" /></a></div>
   </div>
-  <div class="settings-list">
-    <div class="setting-row"><fa-icon [icon]="faMobileScreenButton" /><span><b>Aplicación</b><small>CaleVRadmin · v1.0.0</small></span><strong class="green">ACTIVA</strong></div>
-    <div class="setting-row"><fa-icon [icon]="faDatabase" /><span><b>Persistencia</b><small>Almacenamiento local del dispositivo</small></span><strong class="green">LOCAL</strong></div>
+
+  <div class="album-grid">
+    @for (album of albums; track album.title; let i = $index) {
+      <button type="button" class="album" [class.selected]="selectedAlbum() === i" [style.--album-color]="album.color" (click)="selectAlbum(i)">
+        <span class="album-art"><fa-icon [icon]="faMusic" /><b>{{ i + 1 }}</b></span><strong>{{ album.title }}</strong><small>Álbum / {{ i + 1 }}</small>
+      </button>
+    }
   </div>
-  <div class="reset-box"><h3>Restaurar contenido demo</h3><p>Reemplaza los cambios locales por los datos iniciales.</p><button type="button" (click)="resetData()"><fa-icon [icon]="faArrowsRotate" /> Restaurar</button></div>
-  @if (resetDone()) { <p class="reset-done">Contenido restaurado.</p> }
+
+  <div class="track-card"><span class="kicker">NOW PLAYING</span><h3>{{ albums[selectedAlbum()].title }}</h3><p>{{ albums[selectedAlbum()].subtitle }}</p><audio #audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" (play)="playing.set(true)" (pause)="playing.set(false)" controls></audio></div>
+
+  <div class="playlist">
+    @for (album of albums; track album.title; let i = $index) {
+      <button type="button" class="playlist-row" [class.active]="selectedAlbum() === i" (click)="selectAlbum(i)">
+        <span class="track-number">0{{ i + 1 }}</span><span class="track-copy"><b>{{ album.title }}</b><small>{{ album.subtitle }}</small></span><i [style.background]="album.color"></i><fa-icon [icon]="faForwardStep" />
+      </button>
+    }
+  </div>
+
 </section>

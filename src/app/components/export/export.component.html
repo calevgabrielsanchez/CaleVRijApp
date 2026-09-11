@@ -1,18 +1,21 @@
-<section class="section-view export-view">
+<section class="section-view social-view">
   <div class="section-title">
-    <div>
-      <span class="kicker">DATA / 03</span>
-      <h2>Exportar datos</h2>
-    </div>
-    <fa-icon [icon]="faFileCsv" class="title-icon" />
+    <div><span class="kicker">SOCIAL / 03</span><h2>Redes Sociales</h2></div>
   </div>
 
-  <div class="export-card">
-    <div class="file-icon"><fa-icon [icon]="faFileCsv" /></div>
-    <div><h3>Catálogo CaleVR</h3><p>{{ items().length }} registros · CSV UTF-8</p></div>
-    <span class="ready"><i></i> LISTO</span>
+  <div class="social-links">
+    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><fa-icon [icon]="faFacebook" /><span>Facebook</span></a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><fa-icon [icon]="faInstagram" /><span>Instagram</span></a>
+    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><fa-icon [icon]="faYoutube" /><span>YouTube</span></a>
+    <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer"><fa-icon [icon]="faTiktok" /><span>TikTok</span></a>
   </div>
-  <div class="security-note"><fa-icon [icon]="faShieldHalved" /><span>Exportación segura<br><small>Los campos se escapan para evitar fórmulas en hojas de cálculo.</small></span></div>
-  <button class="download-button" type="button" (click)="download()"><fa-icon [icon]="faDownload" /> Descargar CSV</button>
-  @if (downloaded()) { <p class="downloaded"><i></i> Archivo generado correctamente</p> }
+
+  <div class="media-player">
+    <div class="media-heading"><span class="kicker">MEDIA PLAYER</span><span>{{ slide() + 1 }} / {{ slides.length }}</span></div>
+    <div class="carousel"><img [src]="slides[slide()].image" [alt]="slides[slide()].title"><button type="button" class="previous" aria-label="Imagen anterior" (click)="previous()"><fa-icon [icon]="faChevronLeft" /></button><button type="button" class="next" aria-label="Imagen siguiente" (click)="next()"><fa-icon [icon]="faChevronRight" /></button></div>
+    <h3>{{ slides[slide()].title }}</h3>
+    <div class="dots">@for (item of slides; track item.image; let i = $index) { <button type="button" [class.active]="slide() === i" [attr.aria-label]="'Ir a imagen ' + (i + 1)" (click)="slide.set(i)"></button> }</div>
+  </div>
+
+  <div class="video-player"><span class="kicker">FEATURED VIDEO</span><iframe src="https://www.youtube.com/embed/GkelMun0huY?rel=0" title="Video de muestra CaleVRije" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 </section>
