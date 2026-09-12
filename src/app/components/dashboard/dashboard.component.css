@@ -1,8 +1,8 @@
 :host { display: block; }
-.section-view { padding: 22px 18px; }
+.section-view { padding: 18px 14px 26px; }
 .section-title { align-items: flex-start; display: flex; justify-content: space-between; }
 .kicker, .hero-label { color: var(--magenta); font-size: 10px; font-weight: 700; letter-spacing: .14em; }
-h2 { color: var(--cyan); font-size: 24px; letter-spacing: -.03em; margin: 6px 0 21px; }
+h2 { color: var(--cyan); font-size: 24px; letter-spacing: -.03em; margin: 6px 0 25px; }
 .pulse { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .1em; }
 .pulse i, .status-line i { background: var(--green); border-radius: 50%; display: inline-block; height: 6px; margin: 0 4px 1px 0; width: 6px; }
 .hero-card { align-items: center; background: linear-gradient(145deg, #1db5f2, #087ab9); border: 3px solid #152c3a; box-shadow: inset 0 0 0 2px #69dcff, inset 0 -8px 20px #00527a66; display: flex; justify-content: space-between; min-height: 128px; overflow: hidden; padding: 20px; position: relative; }

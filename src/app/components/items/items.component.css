@@ -1,9 +1,9 @@
 :host { display: block; }
-.section-view { padding: 22px 18px; }
+.section-view { padding: 18px 14px 26px; }
 .shop-view { background: repeating-linear-gradient(0deg, #14275412 0 1px, transparent 1px 4px); min-height: 100%; }
 .section-title { align-items: flex-start; display: flex; justify-content: space-between; }
 .kicker { color: var(--magenta); font-size: 10px; font-weight: 700; letter-spacing: .14em; }.selected-label { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .14em; }
-h2 { color: var(--cyan); font-size: 24px; letter-spacing: -.03em; margin: 6px 0 18px; }
+h2 { color: var(--cyan); font-size: 24px; letter-spacing: -.03em; margin: 6px 0 25px; }
 .total-count { color: var(--cyan-muted); font-size: 22px; font-weight: 300; }
 .item-list { border-top: 1px solid var(--line); }
 .item-row { align-items: center; background: #111c26; border: 0; border-bottom: 1px solid #19516b; color: var(--cyan); display: flex; gap: 10px; min-height: 58px; padding: 8px 3px; text-align: left; width: 100%; }.item-row:hover { background: #075d87; }.item-row.selected { background: #155b42; box-shadow: inset 3px 0 #55e7a1; }

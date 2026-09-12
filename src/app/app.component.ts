@@ -12,10 +12,6 @@ import { SettingsComponent } from './components/settings/settings.component';
 
 type SectionKey = 'calevr' | 'music' | 'social' | 'agenda' | 'contact';
 
-interface BrowserWithXr extends Navigator {
-  xr?: { isSessionSupported(mode: 'immersive-ar'): Promise<boolean> };
-}
-
 interface MainSection {
   key: SectionKey;
   label: string;
@@ -34,7 +30,6 @@ interface MainSection {
 export class AppComponent {
   readonly activeSection = signal<SectionKey>('calevr');
   readonly arOpen = signal(false);
-  readonly arSupported = signal(false);
   readonly sections: readonly MainSection[] = [
     { key: 'calevr', label: 'Inicio', icon: faGamepad, component: DashboardComponent },
     { key: 'music', label: 'CaleVRijeZ', icon: faDragon, component: ItemsComponent },
@@ -45,26 +40,11 @@ export class AppComponent {
   readonly activeComponent = computed(() => this.sections.find((section) => section.key === this.activeSection())?.component ?? DashboardComponent);
   readonly faCube = faCube;
 
-  constructor() {
-    void this.checkArSupport();
-  }
-
   navigate(section: SectionKey): void {
     this.activeSection.set(section);
   }
 
   openAr(): void {
-    if (this.arSupported()) this.arOpen.set(true);
-  }
-
-  private async checkArSupport(): Promise<void> {
-    const xr = (navigator as BrowserWithXr).xr;
-    if (!xr) return;
-
-    try {
-      this.arSupported.set(await xr.isSessionSupported('immersive-ar'));
-    } catch {
-      this.arSupported.set(false);
-    }
+    this.arOpen.set(true);
   }
 }
