@@ -92,7 +92,7 @@ import { faClock, faEnvelope, faPaperPlane, faQuestionCircle, faShareNodes, faSh
     :host { display: block; }
     .contact-view fa-icon { color: #8f3f12 !important; }
     .section-view { color: #3b1d0d; padding: 18px 14px 26px; }
-    .contact-view { background: repeating-linear-gradient(0deg, #14275412 0 1px, transparent 1px 4px); min-height: 100%; }
+    .contact-view { background: repeating-linear-gradient(0deg, #14275418 0 1px, transparent 1px 4px); min-height: 100%; }
     .section-title { align-items: flex-start; display: flex; justify-content: space-between; }
     .kicker, .pixel-label { color: #8f3f12; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
     h2 { color: #a94d16; font-size: 23px; letter-spacing: -.03em; margin: 5px 0 18px; }

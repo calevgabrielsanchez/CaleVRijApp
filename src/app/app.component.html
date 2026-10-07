@@ -5,11 +5,17 @@
   <span class="corner-screw screw-bottom-right" aria-hidden="true"></span>
   <header class="app-header">
     <div class="brand-mark" aria-hidden="true"><img src="/favicon.png" alt=""></div>
-    <div class="brand-copy"><h1><span class="brand-cale">Cale</span><span class="brand-vrij">VRij</span><span class="brand-app">App</span></h1></div>
+    <div class="brand-copy"><h1><span class="brand-full">CaleVRije.com</span></h1></div>
     <button class="connection" type="button" aria-label="Abrir visor de realidad aumentada" (click)="openAr()"><i></i><span>AR</span><fa-icon [icon]="faCube" /></button>
   </header>
 
-  <nav class="main-menu" aria-label="Navegación principal">
+ 
+
+  <div class="content-frame">
+    <ng-container *ngComponentOutlet="activeComponent()"></ng-container>
+  </div>
+
+   <nav class="main-menu" aria-label="Navegación principal">
     @for (section of sections; track section.key) {
       <button
         type="button"
@@ -22,10 +28,6 @@
       </button>
     }
   </nav>
-
-  <div class="content-frame">
-    <ng-container *ngComponentOutlet="activeComponent()"></ng-container>
-  </div>
 
   <footer class="app-footer">
     <span><a href="http://www.digitalsolution.com" target="_blank" rel="noopener noreferrer">DigitalSolution.com</a></span>

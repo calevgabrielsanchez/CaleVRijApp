@@ -1,5 +1,5 @@
 :host { display: block; }
-.music-view { background: repeating-linear-gradient(0deg, #14275412 0 1px, transparent 1px 4px); min-height: 100%; }
+.music-view { background: repeating-linear-gradient(0deg, #14275418 0 1px, transparent 1px 4px); min-height: 100%; }
 .section-view { padding: 18px 14px 26px; }
 .section-title { align-items: flex-start; display: flex; justify-content: space-between; }
 .music-heading { align-items: flex-start; display: flex; justify-content: space-between; width: 100%; }.music-heading h2 { margin-bottom: 0; }.spotify-text-link { align-items: center; color: #1bfc6a; display: flex; font-size: 10px; font-weight: 700; gap: 5px; margin-top: 12px; text-decoration: none; }.spotify-text-link fa-icon { color: #1bfc6a !important; }.spotify-header-logo { align-items: center; aspect-ratio: 1; background: linear-gradient(145deg, #ffa2ea, #fb00c0); border: 3px solid #142754; color: #1bfc6a; display: flex; flex: 0 0 72px; height: 72px; justify-content: center; margin-bottom: 12px; min-height: 0; padding: 0; text-decoration: none; width: 72px; }.spotify-header-logo fa-icon { align-items: center; color: #1bfc6a !important; display: flex; font-size: 43px; justify-content: center; line-height: 1; }
